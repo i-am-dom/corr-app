@@ -6,15 +6,15 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: fastpages
-description: An easy to use blogging platform with support for Jupyter Notebooks. Not.
-github_username: Dominykas-Tautkus
+title: COVID-19 in Lithuania
+description: COVID-19 in Lithuania analysis dashboard. Charts with confirmed cases growth and comparison with other countries.
+github_username: IvonaTau
 # you can comment the below line out if your repo name is not different than your baseurl
-github_repo: "corr-app"
+github_repo: "covid19"
 
 # OPTIONAL: override baseurl and url if using a custom domain
 # Note: leave out the trailing / from this value. 
-url: "https://Dominykas-Tautkus.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://IvonaTau.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 ###########################################################
 #########  Special Instructions for baseurl ###############
@@ -34,13 +34,13 @@ url: "https://Dominykas-Tautkus.github.io" # the base hostname & protocol for yo
 #
 # 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here but WITHOUT QUOTES.
 #
-baseurl: "/corr-app" # the subpath of your site, e.g. "/blog".
+baseurl: "/covid19" # the subpath of your site, e.g. "/blog".
 
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: fastdotai
-    github: fastai
+    twitter: "IvonaTau"
+    github: "IvonaTau"
 
 # Set this to true to get LaTeX math equation support
 use_math: 
@@ -49,7 +49,7 @@ use_math:
 show_description: true
 
 # Set this to true to display image previews on home page, if they exist
-show_image: false
+show_image: True
 
 # Set this to true to display tags on each post
 show_tags: true
@@ -72,10 +72,6 @@ default_badges:
   binder: true
   colab: true
 
-# Escape HTML in post descriptions
-html_escape:
-  description: false
-
 # Everything below here should be left alone. Modifications may break fastpages
 future: true
 theme: minima
@@ -89,8 +85,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-remote-theme
   - jekyll-paginate
-  - jekyll-sitemap
-  - jemoji
 
 # See https://jekyllrb.com/docs/pagination/
 # For pagination to work, you cannot have index.md at the root of your repo, instead you must rename this file to index.html
