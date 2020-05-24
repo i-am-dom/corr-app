@@ -6,15 +6,15 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: COVID-19 in Lithuania
-description: COVID-19 in Lithuania analysis dashboard. Charts with confirmed cases growth and comparison with other countries.
-github_username: IvonaTau
+title: Kriptovaliutu koreliacija
+description: Kriptovaliutu kursu analizes aplikacija
+github_username: Dominykas-Tautkus
 # you can comment the below line out if your repo name is not different than your baseurl
-github_repo: "covid19"
+github_repo: "corr-app"
 
 # OPTIONAL: override baseurl and url if using a custom domain
 # Note: leave out the trailing / from this value. 
-url: "https://IvonaTau.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://Dominykas-Tautkus.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 ###########################################################
 #########  Special Instructions for baseurl ###############
@@ -34,13 +34,13 @@ url: "https://IvonaTau.github.io" # the base hostname & protocol for your site, 
 #
 # 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here but WITHOUT QUOTES.
 #
-baseurl: "/covid19" # the subpath of your site, e.g. "/blog".
+baseurl: "/corr-app" # the subpath of your site, e.g. "/blog".
 
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: "IvonaTau"
-    github: "IvonaTau"
+    twitter: fastdotai"
+    github: fastai
 
 # Set this to true to get LaTeX math equation support
 use_math: 
