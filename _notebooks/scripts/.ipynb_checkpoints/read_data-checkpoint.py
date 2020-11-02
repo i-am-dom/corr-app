@@ -118,14 +118,23 @@ def read_api():
     LSKhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=LSK&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     XAUhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=XAU&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     ETHhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    ADAhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=ADA&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    IOTAhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=IOTA&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    NEOhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=NEO&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    TRXhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=TRX&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    
     
     BTC = format_response(BTChistory_url, 'BTC') 
     EOS = format_response(EOShistory_url, 'EOS') 
     LSK = format_response(LSKhistory_url, 'LSK') 
     XAU = format_response(XAUhistory_url, 'XAU') 
     ETH = format_response(ETHhistory_url, 'ETH')
+    ADA = format_response(ADAhistory_url, 'ADA')
+    IOTA = format_response(ETHhistory_url, 'IOTA')
+    NEO = format_response(NEOhistory_url, 'NEO')
+    TRX = format_response(TRXhistory_url, 'TRX')
 
-    df = BTC.append(EOS).append(LSK).append(XAU).append(ETH) 
+    df = BTC.append(EOS).append(LSK).append(XAU).append(ETH).append(ADA).append(IOTA).append(NEO).append(TRX) 
     tbl = df.pivot_table('close', ['date'], 'currency')
     tbl = tbl.dropna() 
     return tbl
