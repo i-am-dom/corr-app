@@ -51,7 +51,7 @@ jobs:
       with:
         python-version: 3.6
 
-    - name: get notebooks | images
+    - name: get notebooks images
       run: |
         git add images/
         git add _notebooks/scripts/
