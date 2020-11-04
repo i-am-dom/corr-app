@@ -51,6 +51,17 @@ jobs:
       with:
         python-version: 3.6
 
+    - name: get notebooks | images
+      run: |
+        git add images/
+        git add _notebooks/scripts/
+        git add _notebooks/App-autocorrelation.ipynb
+        git add _notebooks/App-covid-19.ipynb
+        git add _notebooks/App-Correlation_charts.ipynb
+        git add _notebooks/App-markets.ipynb
+        git add _notebooks/App-Price_history_charts.ipynb
+        git add _notebooks/App-Scatter_charts.ipynb
+        
     - name: install dependencies
       run: |
         sudo apt-get update -y
