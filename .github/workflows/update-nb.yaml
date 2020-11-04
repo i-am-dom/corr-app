@@ -59,6 +59,10 @@ jobs:
         git add _notebooks/App-Scatter_charts.ipynb
         git commit -m '|bot| refresh data' 
         git push -f 
+    - name: update notebooks
+      id: update_nb
+      run: |
+        ./_action_files/run_notebooks.sh
     - name: convert notebooks and word docs to posts
       uses: ./_action_files
   
