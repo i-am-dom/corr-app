@@ -53,6 +53,8 @@ jobs:
 
     - name: get notebooks images
       run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
         git add images/
         git add _notebooks/scripts/
         git add _notebooks/App-autocorrelation.ipynb
