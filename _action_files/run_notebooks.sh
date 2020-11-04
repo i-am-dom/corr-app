@@ -7,7 +7,7 @@ ERRORS=""
 
 for file in *.ipynb
 do
-    if [ "${file}" = "skip.ipynb" ]; then
+    if [ "${file}" == "skip.ipynb" ]; then
         echo "Skipping ${file}"
     elif papermill --kernel python3 "${file}" "${file}"; then
         echo "Sucessfully refreshed ${file}\n\n\n\n"
