@@ -4,7 +4,7 @@ on:
     - cron:  '0 */6 * * *'
 
 jobs:
-  update-notebooks:
+  update-data:
     if: github.event_name == 'schedule' 
     runs-on: ubuntu-latest
     steps:
