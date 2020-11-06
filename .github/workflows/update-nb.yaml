@@ -1,7 +1,7 @@
 name: Update Notebooks And Refresh Page
 on:
   schedule:
-    - cron:  '*/10 * * * *'
+    - cron:  '0 */12 * * *' #every 12 hours '*/10 * * * *' every 10min
 
 jobs:
   update-data:
