@@ -130,7 +130,7 @@ def read_api():
     XAU = format_response(XAUhistory_url, 'XAU') 
     ETH = format_response(ETHhistory_url, 'ETH')
     ADA = format_response(ADAhistory_url, 'ADA')
-    IOTA = format_response(IOTAhistory_url, 'IOTA')
+    IOTA = format_response(ETHhistory_url, 'IOTA')
     NEO = format_response(NEOhistory_url, 'NEO')
     TRX = format_response(TRXhistory_url, 'TRX')
 
