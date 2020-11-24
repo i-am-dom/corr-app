@@ -124,7 +124,7 @@ def read_api():
     
     NEOhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=NEO&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     TRXhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=TRX&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    SP500history_url = 'https://min-api.cryptocompare.com/data/price?fsym=US500.CUR&tsyms=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    SP500history_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=US500.CUR&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     
     BTC = format_response(BTChistory_url, 'BTC') 
     EOS = format_response(EOShistory_url, 'EOS') 
