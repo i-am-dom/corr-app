@@ -11,7 +11,7 @@ def read():
     df1.set_index('date', inplace=True)
     
     EOS = pd.read_csv("ICO_coins/EOS_USD_2018-06-06_2020-04-02-CoinDesk.csv")
-    IOTA = pd.read_csv("ICO_coins/IOTA_USD_2018-06-06_2020-04-02-CoinDesk.csv")
+    IOTA = pd.read_csv("ICO_coins/IOTA_USD_2018-06-06_2020-04-02-CoinDesk.csv") 
     LSK = pd.read_csv("ICO_coins/LSK_USD_2018-06-06_2020-04-02-CoinDesk.csv")
     NEO = pd.read_csv("ICO_coins/NEO_USD_2018-06-06_2020-04-02-CoinDesk.csv")
     TRX = pd.read_csv("ICO_coins/tron/TRX_USD_2018-06-06_2020-04-02-CoinDesk.csv")
@@ -119,10 +119,12 @@ def read_api():
     XAUhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=XAU&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     ETHhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     ADAhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=ADA&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    IOTAhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=IOTA&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    
+    XRPhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=XRP&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    
     NEOhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=NEO&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     TRXhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=TRX&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    
+    SP500history_url = 'https://min-api.cryptocompare.com/data/price?fsym=US500.CUR&tsyms=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     
     BTC = format_response(BTChistory_url, 'BTC') 
     EOS = format_response(EOShistory_url, 'EOS') 
@@ -130,11 +132,14 @@ def read_api():
     XAU = format_response(XAUhistory_url, 'XAU') 
     ETH = format_response(ETHhistory_url, 'ETH')
     ADA = format_response(ADAhistory_url, 'ADA')
-    IOTA = format_response(ETHhistory_url, 'IOTA')
+    
+    XRP = format_response(XRPhistory_url, 'XRP')
+
     NEO = format_response(NEOhistory_url, 'NEO')
     TRX = format_response(TRXhistory_url, 'TRX')
+    SP500 = format_response(SP500history_url, 'SP500')
 
-    df = BTC.append(EOS).append(LSK).append(XAU).append(ETH).append(ADA).append(IOTA).append(NEO).append(TRX) 
+    df = BTC.append(EOS).append(LSK).append(XAU).append(ETH).append(ADA).append(NEO).append(TRX).append(SP500).append(XRP) 
     tbl = df.pivot_table('close', ['date'], 'currency')
     tbl = tbl.dropna() 
     return tbl
