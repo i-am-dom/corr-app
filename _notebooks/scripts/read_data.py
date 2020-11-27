@@ -205,6 +205,6 @@ def format_news(url, category):
     pd_resp = pd.read_json(url, typ='series')['Data'][0]  
     df_resp = pd.DataFrame(pd_resp)
     df_resp['date'] = pd.to_datetime(df_resp.published_on, unit='s')
-    df_final = df_resp[['date', 'imageurl', 'title', 'url']]
+    df_final = df_resp[['date', 'imageurl', 'title', 'body', 'url']]
     df_final['category'] = df_final.apply(lambda row: category, axis=1)    
     return df_final.iloc[0]
