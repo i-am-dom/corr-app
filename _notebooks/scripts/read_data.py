@@ -144,58 +144,22 @@ def read_api():
     tbl = tbl.dropna() 
     return tbl
 
-def read_news(category=''): 
-  """  BTC_news = 'https://min-api.cryptocompare.com/data/v2/news/?categories=BTC&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    ETH_news = 'https://min-api.cryptocompare.com/data/v2/news/?categories=ETH&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    EOS_news = 'https://min-api.cryptocompare.com/data/v2/news/?categories=EOS&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    LSK_news = 'https://min-api.cryptocompare.com/data/v2/news/?categories=LSK&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    XAU_news = 'https://min-api.cryptocompare.com/data/v2/news/?categories=XAU&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    ADA_news = 'https://min-api.cryptocompare.com/data/v2/news/?categories=ADA&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    XRP_news = 'https://min-api.cryptocompare.com/data/v2/news/?categories=XRP&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    NEO_news = 'https://min-api.cryptocompare.com/data/v2/news/?categories=NEO&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    TRX_news = 'https://min-api.cryptocompare.com/data/v2/news/?categories=TRX&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    
-    
-    BTC = format_news(BTC_news, 'BTC') 
-    EOS = format_news(EOS_news, 'EOS') 
-    LSK = format_news(LSK_news, 'LSK') 
-    XAU = format_news(XAU_news, 'XAU') 
-    ETH = format_news(ETH_news, 'ETH')
-    ADA = format_news(ADA_news, 'ADA')
-    XRP = format_news(XRP_news, 'XRP')
-    NEO = format_news(NEO_news, 'NEO')
-    TRX = format_news(TRX_news, 'TRX')
-    
-    if category == 'BTC': 
-        return BTC 
-    if category == 'EOS': 
-        return EOS 
-    if category == 'LSK': 
-        return LSK 
-    if category == 'XAU': 
-        return XAU 
-    if category == 'ETH': 
-        return ETH 
-    if category == 'ADA': 
-        return ADA 
-    if category == 'XRP': 
-        return XRP 
-    if category == 'NEO': 
-        return NEO 
-    if category == 'TRX': 
-        return TRX 
-    """
-    
-    url = 'https://min-api.cryptocompare.com/data/v2/news/?categories='+category+'&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    
-    respnse = format_news(url, category)
-    
-    
+def read_news(category): 
+    url1 = 'https://min-api.cryptocompare.com/data/v2/news/?categories='
+    url2 = '&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    url = url1 + category + url2    
+    response = format_news(url, category)
     #df = BTC.append(EOS).append(LSK).append(XAU).append(ETH).append(ADA).append(NEO).append(TRX).append(XRP) 
     #tbl = df.pivot_table(['date'], ['imageurl'], ['title'], ['url'], ['category'])
     #tbl = tbl.dropna() 
     return response
-    
+
+def read_covid(): 
+    url = 'https://newsapi.org/v2/everything?q=covid&sources=bbc-news%2Cassociated-press&apiKey=1c5ca7e1e5c349cdb7ec5d1a40dc66fa&fbclid=IwAR3K8zO7eGe-Y6VFCzyyxwIrw68ktKmU-er-IOsTN9BuGfNIpK1ulo-IGzA'
+    pd_resp = pd.read_json(url, typ='series')['articles'][0] 
+    df_resp = pd.DataFrame(pd_resp) 
+    df_final = df_resp[['title', 'description', 'url']]
+    return df_final.iloc[0]
     
     
 def format_response(url, fsym): 
@@ -213,3 +177,4 @@ def format_news(url, category):
     df_final = df_resp[['date', 'imageurl', 'title', 'body', 'url']]
     df_final['category'] = df_final.apply(lambda row: category, axis=1)    
     return df_final.iloc[0]
+
