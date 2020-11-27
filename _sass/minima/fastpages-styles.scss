@@ -205,13 +205,13 @@ table {
   td{
     text-overflow:ellipsis;
     overflow:hidden;
-    max-width: 15em;
+    max-width: 18em;
   }
 }
 
 // customize scrollbars
 ::-webkit-scrollbar {
-  width: 14px;
+  width: 19px;
   height: 18px;
 }
 ::-webkit-scrollbar-thumb {
