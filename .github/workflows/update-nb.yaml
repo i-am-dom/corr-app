@@ -57,6 +57,7 @@ jobs:
         git add _notebooks/App-markets.ipynb
         git add _notebooks/App-Price_history_charts.ipynb
         git add _notebooks/App-Scatter_charts.ipynb
+        git add _notebooks/Market-News.ipynb
         git commit -m '[bot] refresh data' 
         git push -f 
         
