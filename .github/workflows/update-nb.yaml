@@ -51,13 +51,13 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git add images/
         git add _notebooks/scripts/
+        git add _notebooks/Market-News.ipynb
         git add _notebooks/App-autocorrelation.ipynb
-        git add _notebooks/App-covid-19.ipynb
+        git add _notebooks/App-covid-19.ipynb        
         git add _notebooks/App-Correlation_charts.ipynb
         git add _notebooks/App-markets.ipynb
         git add _notebooks/App-Price_history_charts.ipynb
         git add _notebooks/App-Scatter_charts.ipynb
-        git add _notebooks/Market-News.ipynb
         git commit -m '[bot] refresh data' 
         git push -f 
         
