@@ -112,7 +112,7 @@ def read_crypto():
     
     return df_all
 
-def read_api(): 
+def read_api(short_frm = False): 
     BTChistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     EOShistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=EOS&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     LSKhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=LSK&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
@@ -138,8 +138,15 @@ def read_api():
     NEO = format_response(NEOhistory_url, 'NEO')
     TRX = format_response(TRXhistory_url, 'TRX')
     SP500 = format_response(SP500history_url, 'SP500')
+    
+    XAU = XAU[XAU.close != 79987.0] 
+    XAU = XAU[XAU.close > 1080]
 
     df = BTC.append(EOS).append(LSK).append(XAU).append(ETH).append(ADA).append(NEO).append(TRX).append(XRP).append(SP500) 
+    
+    if short_frm: 
+        return df
+    
     tbl = df.pivot_table('close', ['date'], 'currency')
     tbl = tbl.dropna() 
     return tbl
