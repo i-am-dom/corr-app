@@ -3,6 +3,8 @@ import pandas as pd
 import plotly.express as px
 from datetime import datetime, timedelta
 import requests
+import json
+import time
 
 def read():
     df1 = pd.read_csv("CSV/ETH_BTC_USD_2015-08-09_2020-04-04-CoinDesk.csv")
@@ -116,7 +118,7 @@ def read_api(short_frm = False):
     BTChistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=BTC&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     EOShistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=EOS&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     LSKhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=LSK&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    XAUhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=XAU&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    #XAUhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=XAU&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     ETHhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=ETH&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     ADAhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=ADA&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     
@@ -124,31 +126,30 @@ def read_api(short_frm = False):
     
     NEOhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=NEO&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     TRXhistory_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=TRX&tsym=USD&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
-    SP500history_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=US500.CUR&tsym=USD&e=currency&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
+    #SP500history_url = 'https://min-api.cryptocompare.com/data/v2/histoday?fsym=US500.CUR&tsym=USD&e=currency&limit=2000&api_key=c96436b332e3c9f1b6784db0ec59cb81b161eb5853ecfa81cc025366512d6594'
     
     BTC = format_response(BTChistory_url, 'BTC') 
     EOS = format_response(EOShistory_url, 'EOS') 
     LSK = format_response(LSKhistory_url, 'LSK') 
-    XAU = format_response(XAUhistory_url, 'XAU') 
+    #XAU = format_response(XAUhistory_url, 'XAU') 
     ETH = format_response(ETHhistory_url, 'ETH')
     ADA = format_response(ADAhistory_url, 'ADA')
-    
     XRP = format_response(XRPhistory_url, 'XRP')
-
     NEO = format_response(NEOhistory_url, 'NEO')
     TRX = format_response(TRXhistory_url, 'TRX')
-    SP500 = format_response(SP500history_url, 'SP500')
+    #SP500 = format_response(SP500history_url, 'SP500')
     
-    XAU = XAU[XAU.close != 79987.0] 
-    XAU = XAU[XAU.close > 1080]
-
-    df = BTC.append(EOS).append(LSK).append(XAU).append(ETH).append(ADA).append(NEO).append(TRX).append(XRP).append(SP500) 
-    
+    #XAU = XAU[XAU.close != 79987.0] 
+    #XAU = XAU[XAU.close > 1080]
+    markets = read_markets_api() 
+    df = BTC.append(EOS).append(LSK).append(ETH).append(ADA).append(NEO).append(TRX).append(XRP).append(markets)
+    df['date'] = df['date'].dt.date
     if short_frm: 
         return df
     
     tbl = df.pivot_table('close', ['date'], 'currency')
-    tbl = tbl.dropna() 
+    tbl = tbl.dropna()
+    #tbl = tbl[(tbl != 0).all(1)] #remove rows where at least one column contains 0
     return tbl
 
 def read_news(category): 
@@ -162,12 +163,21 @@ def read_news(category):
     return response
 
 def read_covid(): 
-    url = 'https://newsapi.org/v2/everything?q=covid&sources=bbc-news%2Cassociated-press&apiKey=1c5ca7e1e5c349cdb7ec5d1a40dc66fa&fbclid=IwAR3K8zO7eGe-Y6VFCzyyxwIrw68ktKmU-er-IOsTN9BuGfNIpK1ulo-IGzA'
+    #url = 'https://newsapi.org/v2/everything?q=covid&sources=bbc-news%2Cassociated-press&apiKey=1c5ca7e1e5c349cdb7ec5d1a40dc66fa&fbclid=IwAR3K8zO7eGe-Y6VFCzyyxwIrw68ktKmU-er-IOsTN9BuGfNIpK1ulo-IGzA'
+    url = 'http://newsapi.org/v2/top-headlines?sources=bbc-news%2Ccbc-news&q=covid&apiKey=1c5ca7e1e5c349cdb7ec5d1a40dc66fa&fbclid=IwAR0d3GaaaiwpDtwWUrHFxuwcDfMW9Hnea_ncxbrKPjPI5H2ixMIe7cBjM-M'
     pd_resp = pd.read_json(url, typ='series')['articles'][0] 
     df_resp = pd.DataFrame(pd_resp) 
     df_final = df_resp[['title', 'description', 'url']]
     return df_final.iloc[0]
-    
+
+def read_markets_api(): 
+    # ^GSPC-->sp500 ; GC=F-->XAU
+    SP500 = format_markets('^GSPC', 'SP500') 
+    XAU = format_markets('GC=F', 'XAU') 
+    markets = SP500.append(XAU)
+    return markets
+
+
     
 def format_response(url, fsym): 
     pd_resp = pd.read_json(url, typ='series')['Data']['Data']
@@ -184,4 +194,25 @@ def format_news(url, category):
     df_final = df_resp[['date', 'imageurl', 'title', 'body', 'url']]
     df_final['category'] = df_final.apply(lambda row: category, axis=1)    
     return df_final.iloc[0]
+
+def format_markets(symbol, crypto): 
+    todayTS = int(time.time()) 
+    url = "https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-historical-data"
+    
+    querystring = {"period1":"1461763800","period2":todayTS,"symbol":symbol,"frequency":"1d","filter":"history"}
+    headers = {
+    'x-rapidapi-key': "0a858294d2msh0e3b58a95e33f49p1364a8jsn2d67aedbbc28",
+    'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
+    }
+
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    
+    json_data = json.loads(response.content)['prices'] 
+    df_resp = pd.DataFrame(json_data)
+    df_resp['date'] = pd.to_datetime(df_resp.date, unit='s')
+    #df_resp['date'] = df_resp['date'].dt.date
+    df_final = df_resp[['close', 'date']]
+    df_final['currency'] = df_final.apply(lambda row: crypto, axis=1)
+    return df_final
+
 
