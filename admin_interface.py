@@ -49,7 +49,7 @@ def update_2h():
 
 @app.route('/update_daily')
 def update_daily():
-	CRON_SETTING = '59 4 * * *'
+	CRON_SETTING = '0 0 23 * *'
 	update_cron(CRON_SETTING)
 	git_pull()
 	git_push()
