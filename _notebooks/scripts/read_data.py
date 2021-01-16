@@ -201,9 +201,9 @@ def format_markets(symbol, crypto):
     
     querystring = {"period1":"1461763800","period2":todayTS,"symbol":symbol,"frequency":"1d","filter":"history"}
     headers = {
-    'x-rapidapi-key': "0a858294d2msh0e3b58a95e33f49p1364a8jsn2d67aedbbc28",
+    'x-rapidapi-key': "b685990ecamsh74862ef65eb2958p10db79jsn0fdc487f900b",
     'x-rapidapi-host': "apidojo-yahoo-finance-v1.p.rapidapi.com"
-    }
+    }  
 
     response = requests.request("GET", url, headers=headers, params=querystring)
     
