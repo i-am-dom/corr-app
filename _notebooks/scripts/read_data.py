@@ -164,7 +164,7 @@ def read_news(category):
 
 def read_covid(): 
     #url = 'https://newsapi.org/v2/everything?q=covid&sources=bbc-news%2Cassociated-press&apiKey=1c5ca7e1e5c349cdb7ec5d1a40dc66fa&fbclid=IwAR3K8zO7eGe-Y6VFCzyyxwIrw68ktKmU-er-IOsTN9BuGfNIpK1ulo-IGzA'
-    url = 'http://newsapi.org/v2/top-headlines?sources=bbc-news%2Ccbc-news&q=covid&apiKey=1c5ca7e1e5c349cdb7ec5d1a40dc66fa&fbclid=IwAR0d3GaaaiwpDtwWUrHFxuwcDfMW9Hnea_ncxbrKPjPI5H2ixMIe7cBjM-M'
+    url = 'http://newsapi.org/v2/top-headlines?sources=bbc-news%2Ccbc-news%2Cfinancial-times%2Cnbc-news%2Cindependent%2Cthe-wall-street-journal&q=covid&apiKey=1c5ca7e1e5c349cdb7ec5d1a40dc66fa&fbclid=IwAR0d3GaaaiwpDtwWUrHFxuwcDfMW9Hnea_ncxbrKPjPI5H2ixMIe7cBjM-M'
     pd_resp = pd.read_json(url, typ='series')['articles'][0] 
     df_resp = pd.DataFrame(pd_resp) 
     df_final = df_resp[['title', 'description', 'url']]
