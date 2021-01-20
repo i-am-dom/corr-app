@@ -70,7 +70,7 @@ def main():
 	if args.update_hourly:
 		CRON_SETTING = '0 * * * *'
 	elif args.update_daily:
-		CRON_SETTING = '59 4 * * *'
+		CRON_SETTING = '0 1 * * *'
 	elif args.update_weekly:
 		CRON_SETTING = '5 8 * * 0'
 	elif args.update_10min:
