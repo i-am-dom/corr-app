@@ -1,0 +1,113 @@
+{
+  
+    
+        "post0": {
+            "title": "Kriptovaliutų naujienos",
+            "content": "AllianceBlock to launch solution for proving digital ID without privacy compromise. AllianceBlock has recently introduced a solution that allows users to verify their digital identity while maintaining their confidentiality. The post AllianceBlock to launch solution for proving digital ID without privacy compromise appeared first on Blockchain, Crypto and Stock News . ... | Skaityti daugiau | . The Problem With Money, And The Solution Explained. Bitcoin is sound money because the blockchain makes its ledger tamper-evident, while proof-of-work ensures the blockchain is tamper-proof. ... | Skaityti daugiau | . SEC Gains Supporter in Fight Against Ripple. The firm believes that the court should grant the SEC’s motion for summary judgement, dismissing the defendants’ fair notice defense ... | Skaityti daugiau | . TRX’s USD Exchange Rate Jumps 270% Higher on FTX After Exchange Brokers Deal With Tron. On Thursday, at approximately 12:48 p.m. (ET), the embattled exchange FTX revealed that it has created a special facility with Tron. The deal allows holders of specific Tron-based coins to withdraw the tokens to external wallets on a 1:1 ratio. While coin market aggregation sites say tron tapped a high of $0.06 per token on ... | Skaityti daugiau | . Bored Ape Yacht Club NFT Prices Fall After FTX Sinks Crypto Market. Sinking ETH value and potential panic-selling pushes the NFT “blue chip” down—now 82% off its peak price from April. ... | Skaityti daugiau | . Charles Hoskinson believes FTX crisis would be the last calamity of this bear market. Cardano founder Charles Hoskinson observes the turmoil surrounding FTX as the final negative event of the bear market. The post Charles Hoskinson believes FTX crisis would be the last calamity of this bear market appeared first on Blockchain, Crypto and Stock News . ... | Skaityti daugiau | . US Senator Says Crypto Needs ‘More Aggressive Enforcement’ — ‘I’m Going to Keep Pushing SEC to Enforce the Law’. U.S. Senator Elizabeth Warren says the implosion of crypto exchange FTX shows that the crypto industry needs “more aggressive enforcement.” She stressed: “I’m going to keep pushing SEC to enforce the law to protect consumers and financial stability.” However, many people pointed out that the Securities and Exchange Commission (SEC) has failed to provide clear ... | Skaityti daugiau | .",
+            "url": "https://dominykas-tautkus.github.io/corr-app/2022/11/10/Market-News.html",
+            "relUrl": "/2022/11/10/Market-News.html",
+            "date": " • Nov 10, 2022"
+        }
+        
+    
+  
+    
+        ,"post1": {
+            "title": "Kriptovaliutos ir rinkos",
+            "content": "An Exception was encountered at &#39;In [7]&#39;. . Kriptovaliut&#371; su rinkomis koreliacijos matrica . Normalizuotos kriptovaliut&#371; su rinkomis kainos . (Pasikrovimas gali užtrukti kelias sek.) . Dešinėje galimas kelių kriptovaliutų pasirinkimas . . . Kainos pagal laiko diapazonus . (Laiko diapazono pasirinkimas apačioje pažymėjus norimą laikotarpį) . Execution using papermill encountered an exception here and stopped: . MaxRowsError Traceback (most recent call last) /opt/hostedtoolcache/Python/3.6.15/x64/lib/python3.6/site-packages/altair/vegalite/v4/api.py in to_dict(self, *args, **kwargs) 361 copy = self.copy(deep=False) 362 original_data = getattr(copy, &#34;data&#34;, Undefined) --&gt; 363 copy.data = _prepare_data(original_data, context) 364 365 if original_data is not Undefined: /opt/hostedtoolcache/Python/3.6.15/x64/lib/python3.6/site-packages/altair/vegalite/v4/api.py in _prepare_data(data, context) 82 # convert dataframes or objects with __geo_interface__ to dict 83 if isinstance(data, pd.DataFrame) or hasattr(data, &#34;__geo_interface__&#34;): &gt; 84 data = _pipe(data, data_transformers.get()) 85 86 # convert string input to a URLData /opt/hostedtoolcache/Python/3.6.15/x64/lib/python3.6/site-packages/toolz/functoolz.py in pipe(data, *funcs) 626 &#34;&#34;&#34; 627 for func in funcs: --&gt; 628 data = func(data) 629 return data 630 /opt/hostedtoolcache/Python/3.6.15/x64/lib/python3.6/site-packages/toolz/functoolz.py in __call__(self, *args, **kwargs) 302 def __call__(self, *args, **kwargs): 303 try: --&gt; 304 return self._partial(*args, **kwargs) 305 except TypeError as exc: 306 if self._should_curry(args, kwargs, exc): /opt/hostedtoolcache/Python/3.6.15/x64/lib/python3.6/site-packages/altair/vegalite/data.py in default_data_transformer(data, max_rows) 17 @curried.curry 18 def default_data_transformer(data, max_rows=5000): &gt; 19 return curried.pipe(data, limit_rows(max_rows=max_rows), to_values) 20 21 /opt/hostedtoolcache/Python/3.6.15/x64/lib/python3.6/site-packages/toolz/functoolz.py in pipe(data, *funcs) 626 &#34;&#34;&#34; 627 for func in funcs: --&gt; 628 data = func(data) 629 return data 630 /opt/hostedtoolcache/Python/3.6.15/x64/lib/python3.6/site-packages/toolz/functoolz.py in __call__(self, *args, **kwargs) 302 def __call__(self, *args, **kwargs): 303 try: --&gt; 304 return self._partial(*args, **kwargs) 305 except TypeError as exc: 306 if self._should_curry(args, kwargs, exc): /opt/hostedtoolcache/Python/3.6.15/x64/lib/python3.6/site-packages/altair/utils/data.py in limit_rows(data, max_rows) 82 &#34;than the maximum allowed ({}). &#34; 83 &#34;For information on how to plot larger datasets &#34; &gt; 84 &#34;in Altair, see the documentation&#34;.format(max_rows) 85 ) 86 return data MaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation . alt.VConcatChart(...) .",
+            "url": "https://dominykas-tautkus.github.io/corr-app/dominykas%20tautkus/2022/11/10/App-markets.html",
+            "relUrl": "/dominykas%20tautkus/2022/11/10/App-markets.html",
+            "date": " • Nov 10, 2022"
+        }
+        
+    
+  
+    
+        ,"post2": {
+            "title": "Koreliacija COVID-19 pandemijos metu",
+            "content": "An Exception was encountered at &#39;In [3]&#39;. . Execution using papermill encountered an exception here and stopped: . &#352;ios dienos kriptovaliut&#371; ir pandemijos naujienos . Kain&#371; kaita pandemijos metu . Koreliacija pandemijos metu . Koreliacijos koeficiento (Spirmano r) matrica. .",
+            "url": "https://dominykas-tautkus.github.io/corr-app/dominykas%20tautkus/2022/11/10/App-covid-19.html",
+            "relUrl": "/dominykas%20tautkus/2022/11/10/App-covid-19.html",
+            "date": " • Nov 10, 2022"
+        }
+        
+    
+  
+    
+        ,"post3": {
+            "title": "Autokoreliacija",
+            "content": "ETH autokoreliacija . BTC autokoreliacija . TRX autokoreliacija . EOS autokoreliacija .",
+            "url": "https://dominykas-tautkus.github.io/corr-app/dominykas%20tautkus/2022/11/10/App-autocorrelation.html",
+            "relUrl": "/dominykas%20tautkus/2022/11/10/App-autocorrelation.html",
+            "date": " • Nov 10, 2022"
+        }
+        
+    
+  
+    
+        ,"post4": {
+            "title": "Sklaidos diagramos",
+            "content": "Sklaidos diagrama su BTC . . .",
+            "url": "https://dominykas-tautkus.github.io/corr-app/dominykas%20tautkus/2022/11/10/App-Scatter_charts.html",
+            "relUrl": "/dominykas%20tautkus/2022/11/10/App-Scatter_charts.html",
+            "date": " • Nov 10, 2022"
+        }
+        
+    
+  
+    
+        ,"post5": {
+            "title": "Kainų istorija",
+            "content": "Kainų istorija. . Mąstelio keitimas su pelės ratuku, kriptovaliutų pasirinkimas dešinėje (&quot;shift&quot; norint pasirinkti kelias). . Kainos per paskutines 7 dienas . currency ADA BTC EOS ETH LSK NEO SP500 TRX XAU XRP . date . 2022-11-02 0.3857 | 20150.33 | 1.1190 | 1518.33 | 0.9520 | 8.205 | 3759.689941 | 0.06155 | 1645.699951 | 0.4498 | . 2022-11-03 0.3894 | 20207.99 | 1.1490 | 1530.87 | 0.9738 | 8.364 | 3719.889893 | 0.06175 | 1627.300049 | 0.4549 | . 2022-11-04 0.4216 | 21150.60 | 1.1960 | 1645.06 | 1.0270 | 8.974 | 3770.550049 | 0.06384 | 1672.500000 | 0.5064 | . 2022-11-07 0.4041 | 20593.73 | 1.1340 | 1568.45 | 0.9928 | 8.649 | 3806.800049 | 0.06230 | 1676.500000 | 0.4649 | . 2022-11-08 0.3723 | 18544.70 | 0.9671 | 1334.22 | 0.8634 | 7.431 | 3828.110107 | 0.05886 | 1712.099976 | 0.4061 | . 2022-11-09 0.3171 | 15820.02 | 0.8223 | 1104.17 | 0.6934 | 6.163 | 3748.570068 | 0.06438 | 1710.099976 | 0.3290 | . 2022-11-10 0.3678 | 17559.67 | 0.9413 | 1296.01 | 0.8040 | 7.147 | 3956.370117 | 0.05774 | 1750.300049 | 0.3942 | . Normalizuota kain&#371; istorija . (Dešinėje galimas kelių kriptovaliutų pasirinkimas) . . . Normalizuota kriptovaliut&#371; kain&#371; istorija pagal laikotarp&#303; . . .",
+            "url": "https://dominykas-tautkus.github.io/corr-app/jupyter/2022/11/10/App-Price_history_charts.html",
+            "relUrl": "/jupyter/2022/11/10/App-Price_history_charts.html",
+            "date": " • Nov 10, 2022"
+        }
+        
+    
+  
+    
+        ,"post6": {
+            "title": "Koreliacijų matrica",
+            "content": "I&#353;pl&#279;stin&#279; koreliacij&#371; matrica. .",
+            "url": "https://dominykas-tautkus.github.io/corr-app/dominykas%20tautkus/2022/11/10/App-Correlation_charts.html",
+            "relUrl": "/dominykas%20tautkus/2022/11/10/App-Correlation_charts.html",
+            "date": " • Nov 10, 2022"
+        }
+        
+    
+  
+
+  
+  
+
+  
+      ,"page1": {
+          "title": "About Me",
+          "content": "This is where you put the contents of your About page. Like all your pages, it’s in Markdown format. . This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
+          "url": "https://dominykas-tautkus.github.io/corr-app/about/",
+          "relUrl": "/about/",
+          "date": ""
+      }
+      
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+}
